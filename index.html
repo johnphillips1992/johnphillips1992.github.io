@@ -1,57 +1,357 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <div class="off-canvas-wrapper">
-      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+<title>John Phillips | Software Developer</title>
 
-        <div class="off-canvas position-left reveal-for-large" id="my-info" data-off-canvas data-position="left">
-          <div class="row column">
-            <br>
-            <h5>John Phillips</h5>
-            <p>Software engineering is a passion of mine. I have substatial experience in many computer science subjects. I am dedicated to my work and mercilessly refactor.</p>
-          </div>
-        </div>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        <div class="off-canvas-content" data-off-canvas-content>
-          <div class="title-bar hide-for-large">
-            <div class="title-bar-left">
-              <button class="menu-icon" type="button" data-open="my-info"></button>
-              <span class="title-bar-title">John Phillips</span>
-            </div>
-          </div>
-          <div class="callout primary">
-            <div class="row column">
-              <h1>Hello! This is the portfolio for John Phillips.</h1>
-              <p class="lead">These projects represent my life's work in the field of computer science. I've included educational projects and professional occ</p>
-            </div>
-          </div>
-          <div class="row small-up-2 medium-up-3 large-up-4">
-            <div class="column">
-              <img class="thumbnail" src="https://placehold.it/550x550">
-              <h5>Robotics</h5>
-            </div>
-            <div class="column">
-              <img class="thumbnail" src="https://placehold.it/550x550">
-              <h5>Web Development</h5>
-            </div>
-                      </div>
+<style>
 
-          <hr>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Inter', sans-serif;
+}
 
-      </div>
-    </div>
+body{
+background:linear-gradient(135deg,#0f172a,#020617);
+color:white;
+overflow-x:hidden;
+}
 
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-  </body>
+nav{
+position:fixed;
+top:0;
+width:100%;
+backdrop-filter: blur(15px);
+background:rgba(0,0,0,0.4);
+padding:15px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:100;
+}
+
+nav h1{
+font-weight:700;
+letter-spacing:2px;
+}
+
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:white;
+opacity:0.8;
+transition:0.3s;
+}
+
+nav a:hover{
+opacity:1;
+}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:0 10%;
+}
+
+.hero h1{
+font-size:60px;
+background:linear-gradient(90deg,#38bdf8,#818cf8);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+margin-top:20px;
+font-size:20px;
+opacity:0.8;
+}
+
+.hero img{
+width:160px;
+border-radius:50%;
+margin-bottom:30px;
+border:3px solid rgba(255,255,255,0.2);
+}
+
+.button{
+display:inline-block;
+margin-top:30px;
+padding:12px 28px;
+border-radius:30px;
+background:linear-gradient(90deg,#6366f1,#38bdf8);
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+.button:hover{
+transform:scale(1.05);
+}
+
+section{
+padding:120px 10%;
+}
+
+.section-title{
+font-size:40px;
+margin-bottom:50px;
+}
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.skill{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:15px;
+transition:0.3s;
+text-align:center;
+}
+
+.skill:hover{
+transform:translateY(-6px);
+background:rgba(255,255,255,0.08);
+}
+
+.timeline{
+border-left:2px solid rgba(255,255,255,0.2);
+padding-left:30px;
+}
+
+.job{
+margin-bottom:40px;
+}
+
+.job h3{
+color:#38bdf8;
+}
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.project{
+background:rgba(255,255,255,0.05);
+border-radius:18px;
+overflow:hidden;
+transition:0.3s;
+}
+
+.project:hover{
+transform:translateY(-8px);
+}
+
+.project img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.project-content{
+padding:25px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+opacity:0.6;
+}
+
+.fade{
+opacity:0;
+transform:translateY(20px);
+transition:1s;
+}
+
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<h1>JP</h1>
+<div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
+</div>
+</nav>
+
+<div class="hero">
+
+<div>
+<img src="https://via.placeholder.com/200" alt="Profile">
+
+<h1>John Phillips</h1>
+
+<p>Software Developer • AI Engineer • Full Stack Builder</p>
+
+<a class="button" href="#projects">View Work</a>
+</div>
+
+</div>
+
+<section id="about" class="fade">
+
+<h2 class="section-title">About</h2>
+
+<p style="max-width:700px;font-size:18px;line-height:1.7">
+
+Software developer experienced in building full-stack systems, AI-driven software, and enterprise applications.  
+My work spans manufacturing analytics systems, AI agent training, and real-time dashboards that drive real operational results.
+
+</p>
+
+</section>
+
+<section id="skills" class="fade">
+
+<h2 class="section-title">Skills</h2>
+
+<div class="skills-grid">
+
+<div class="skill">C#</div>
+<div class="skill">Python</div>
+<div class="skill">JavaScript</div>
+<div class="skill">Java</div>
+<div class="skill">SQL</div>
+<div class="skill">MongoDB</div>
+<div class="skill">Firebase</div>
+<div class="skill">React</div>
+<div class="skill">Vue</div>
+<div class="skill">Angular</div>
+<div class="skill">Django</div>
+<div class="skill">ASP.NET</div>
+<div class="skill">AI Prompt Engineering</div>
+<div class="skill">Model Training</div>
+
+</div>
+
+</section>
+
+<section id="experience" class="fade">
+
+<h2 class="section-title">Professional Experience</h2>
+
+<div class="timeline">
+
+<div class="job">
+<h3>AI Programmer / Trainer</h3>
+<p>Self Employed — 2024-Present</p>
+<p>Training AI models and refining prompts to improve their ability to generate and explain complex software concepts.</p>
+</div>
+
+<div class="job">
+<h3>Software Developer</h3>
+<p>Versaterm — 2023-2024</p>
+<p>Developed full-stack public safety applications using C# and Vue in a SCRUM environment.</p>
+</div>
+
+<div class="job">
+<h3>Development Engineer</h3>
+<p>Michelin — 2020-2023</p>
+<p>Created digital manufacturing tools and applications to drive plant productivity.</p>
+</div>
+
+<div class="job">
+<h3>Software Developer</h3>
+<p>ICF — 2016-2017</p>
+<p>Built mobile applications using React, Python, and PHP.</p>
+</div>
+
+<div class="job">
+<h3>Senior Software Developer</h3>
+<p>Texas A&M University — 2013-2016</p>
+<p>Maintained Django applications and large public-facing websites.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="projects" class="fade">
+
+<h2 class="section-title">Projects</h2>
+
+<div class="projects">
+
+<div class="project">
+<img src="https://picsum.photos/500/300?random=1">
+<div class="project-content">
+<h3>Machine Monitoring System</h3>
+<p>C# application polling PLC machines every 5 seconds to transform raw manufacturing data into analytics stored in SQL.</p>
+</div>
+</div>
+
+<div class="project">
+<img src="https://picsum.photos/500/300?random=2">
+<div class="project-content">
+<h3>Manufacturing Dashboard</h3>
+<p>Real-time production dashboard showing KPIs and daily metrics using JavaScript visualization tools.</p>
+</div>
+</div>
+
+<div class="project">
+<img src="https://picsum.photos/500/300?random=3">
+<div class="project-content">
+<h3>Webpage Archive Tool</h3>
+<p>React Native crawler application that downloads websites locally and notifies users of internet connectivity.</p>
+</div>
+</div>
+
+<div class="project">
+<img src="https://picsum.photos/500/300?random=4">
+<div class="project-content">
+<h3>Big Data Correlation Analysis</h3>
+<p>React + MongoDB system to explore correlations across large datasets with graph visualization.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 John Phillips</p>
+
+</footer>
+
+<script>
+
+const observer = new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}
+})
+})
+
+document.querySelectorAll(".fade").forEach(el=>{
+observer.observe(el)
+})
+
+</script>
+
+</body>
 </html>
