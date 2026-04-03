@@ -1,356 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>John Phillips | Software Developer</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family: 'Inter', sans-serif;
-}
-
-body{
-background:linear-gradient(135deg,#0f172a,#020617);
-color:white;
-overflow-x:hidden;
-}
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-backdrop-filter: blur(15px);
-background:rgba(0,0,0,0.4);
-padding:15px 10%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:100;
-}
-
-nav h1{
-font-weight:700;
-letter-spacing:2px;
-}
-
-nav a{
-margin-left:20px;
-text-decoration:none;
-color:white;
-opacity:0.8;
-transition:0.3s;
-}
-
-nav a:hover{
-opacity:1;
-}
-
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:0 10%;
-}
-
-.hero h1{
-font-size:60px;
-background:linear-gradient(90deg,#38bdf8,#818cf8);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.hero p{
-margin-top:20px;
-font-size:20px;
-opacity:0.8;
-}
-
-.hero img{
-width:160px;
-border-radius:50%;
-margin-bottom:30px;
-border:3px solid rgba(255,255,255,0.2);
-}
-
-.button{
-display:inline-block;
-margin-top:30px;
-padding:12px 28px;
-border-radius:30px;
-background:linear-gradient(90deg,#6366f1,#38bdf8);
-text-decoration:none;
-color:white;
-transition:0.3s;
-}
-
-.button:hover{
-transform:scale(1.05);
-}
-
-section{
-padding:120px 10%;
-}
-
-.section-title{
-font-size:40px;
-margin-bottom:50px;
-}
-
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
-}
-
-.skill{
-background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:15px;
-transition:0.3s;
-text-align:center;
-}
-
-.skill:hover{
-transform:translateY(-6px);
-background:rgba(255,255,255,0.08);
-}
-
-.timeline{
-border-left:2px solid rgba(255,255,255,0.2);
-padding-left:30px;
-}
-
-.job{
-margin-bottom:40px;
-}
-
-.job h3{
-color:#38bdf8;
-}
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-}
-
-.project{
-background:rgba(255,255,255,0.05);
-border-radius:18px;
-overflow:hidden;
-transition:0.3s;
-}
-
-.project:hover{
-transform:translateY(-8px);
-}
-
-.project img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-.project-content{
-padding:25px;
-}
-
-footer{
-text-align:center;
-padding:40px;
-opacity:0.6;
-}
-
-.fade{
-opacity:0;
-transform:translateY(20px);
-transition:1s;
-}
-
-.fade.show{
-opacity:1;
-transform:translateY(0);
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Phillips | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .glass-panel {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .glass-panel:hover {
+            border-color: #00f3ff;
+            transform: translateY(-5px);
+        }
+        .text-neon {
+            color: #00f3ff;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+        .section-padding { padding-top: 8rem; padding-bottom: 8rem; }
+    </style>
 </head>
-
 <body>
 
-<nav>
-<h1>JP</h1>
-<div>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#experience">Experience</a>
-<a href="#projects">Projects</a>
-</div>
-</nav>
+<canvas id="glcanvas"></canvas>
 
-<div class="hero">
+<main class="relative z-10">
 
-<div>
-<img src="./headshot.jpg" alt="Profile">
+    <!-- HERO -->
+    <section class="min-h-screen flex items-center px-6 lg:px-24">
+        <div class="max-w-4xl">
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-4">
+                JOHN <span class="text-neon">PHILLIPS</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 font-light max-w-2xl">
+                Software Developer & Prompt Engineer. Building AI-driven systems, experimental platforms, 
+                and scalable digital products.
+            </p>
+        </div>
+    </section>
 
-<h1>John Phillips</h1>
+    <!-- PROJECTS -->
+    <section class="section-padding px-6 lg:px-24">
+        <h2 class="text-3xl font-bold mb-12">PROJECTS</h2>
 
-<p>Software Developer • AI Engineer • Full Stack Builder</p>
+        <div class="grid md:grid-cols-3 gap-6">
 
-<a class="button" href="#projects">View Work</a>
-</div>
+            <a href="https://pmai.cc" target="_blank" class="glass-panel p-8 rounded-2xl group">
+                <h3 class="text-2xl font-bold mb-3 group-hover:text-[#00f3ff]">pmai.cc</h3>
+                <p class="text-gray-400">
+                    AI research and deployment hub focused on building practical machine intelligence tools, 
+                    autonomous systems, and experimental LLM workflows.
+                </p>
+            </a>
 
-</div>
+            <a href="https://biblestory.fun" target="_blank" class="glass-panel p-8 rounded-2xl group">
+                <h3 class="text-2xl font-bold mb-3 group-hover:text-[#00f3ff]">biblestory.fun</h3>
+                <p class="text-gray-400">
+                    Interactive storytelling engine powered by AI. Generates dynamic narratives and 
+                    branching story experiences in real-time.
+                </p>
+            </a>
 
-<section id="about" class="fade">
+            <a href="https://terro.fun" target="_blank" class="glass-panel p-8 rounded-2xl group">
+                <h3 class="text-2xl font-bold mb-3 group-hover:text-[#00f3ff]">terro.fun</h3>
+                <p class="text-gray-400">
+                    Experimental game platform blending logic systems, procedural generation, 
+                    and non-deterministic AI-driven gameplay mechanics.
+                </p>
+            </a>
 
-<h2 class="section-title">About</h2>
+        </div>
+    </section>
 
-<p style="max-width:700px;font-size:18px;line-height:1.7">
+</main>
 
-Software developer experienced in building full-stack systems, AI-driven software, and enterprise applications.  
-My work spans manufacturing analytics systems, AI agent training, and real-time dashboards that drive real operational results.
+<script id="fs" type="x-shader/x-fragment">
+precision highp float;
 
-</p>
+uniform vec2 u_resolution;
+uniform float u_time;
+uniform vec2 u_mouse;
 
-</section>
+mat2 rot(float a) { return mat2(cos(a), -sin(a), sin(a), cos(a)); }
 
-<section id="skills" class="fade">
+float smin(float a, float b, float k) {
+    float h = clamp(0.5 + 0.5 * (b - a) / k, 0.0, 1.0);
+    return mix(b, a, h) - k * h * (1.0 - h);
+}
 
-<h2 class="section-title">Skills</h2>
+float sdSphere(vec3 p, float s) { return length(p) - s; }
+float sdBox(vec3 p, vec3 b) {
+    vec3 q = abs(p) - b;
+    return length(max(q,0.0)) + min(max(q.x,max(q.y,q.z)),0.0);
+}
+float sdTorus(vec3 p, vec2 t) {
+    vec2 q = vec2(length(p.xz)-t.x,p.y);
+    return length(q)-t.y;
+}
+float sdOctahedron(vec3 p, float s) {
+    p = abs(p);
+    return (p.x+p.y+p.z-s)*0.57735027;
+}
 
-<div class="skills-grid">
+float getObject(vec3 p, float idx) {
+    if(idx < 1.0) return sdBox(p, vec3(0.8));
+    if(idx < 2.0) return sdTorus(p, vec2(0.8,0.3));
+    if(idx < 3.0) return sdOctahedron(p, 1.2);
+    if(idx < 4.0) return length(p.xz)-0.5;
+    return sdBox(p, vec3(1.2,0.2,1.2));
+}
 
-<div class="skill">C#</div>
-<div class="skill">Python</div>
-<div class="skill">JavaScript</div>
-<div class="skill">Java</div>
-<div class="skill">SQL</div>
-<div class="skill">MongoDB</div>
-<div class="skill">Firebase</div>
-<div class="skill">React</div>
-<div class="skill">Vue</div>
-<div class="skill">Angular</div>
-<div class="skill">Django</div>
-<div class="skill">ASP.NET</div>
-<div class="skill">AI Prompt Engineering</div>
-<div class="skill">Model Training</div>
+float map(vec3 p) {
+    float t = u_time * 0.3;
 
-</div>
+    vec3 p1 = p;
+    p1.xz *= rot(t);
+    p1.xy *= rot(t * 0.7);
 
-</section>
+    float blob = sdSphere(p1, 1.0) 
+        + sin(p1.x*3.+t)*sin(p1.y*3.+t)*sin(p1.z*3.+t)*0.25;
 
-<section id="experience" class="fade">
+    float idx = mod(t * 0.2, 5.0);
+    float i0 = floor(idx);
+    float i1 = mod(i0 + 1.0, 5.0);
+    float f = fract(idx);
 
-<h2 class="section-title">Professional Experience</h2>
+    float objA = getObject(p1, i0);
+    float objB = getObject(p1, i1);
+    float obj = mix(objA, objB, smoothstep(0.0,1.0,f));
 
-<div class="timeline">
+    float blend = 0.5 + 0.5*sin(t * 0.5);
+    return mix(blob, obj, blend);
+}
 
-<div class="job">
-<h3>AI Programmer / Trainer</h3>
-<p>Self Employed — 2024-Present</p>
-<p>Training AI models and refining prompts to improve their ability to generate and explain complex software concepts.</p>
-</div>
+void main() {
+    vec2 uv = (gl_FragCoord.xy - 0.5*u_resolution.xy) / u_resolution.y;
 
-<div class="job">
-<h3>Software Developer</h3>
-<p>Versaterm — 2023-2024</p>
-<p>Developed full-stack public safety applications using C# and Vue in a SCRUM environment.</p>
-</div>
+    vec3 ro = vec3(0,0,-4.5);
+    vec3 rd = normalize(vec3(uv,1.5));
 
-<div class="job">
-<h3>Development Engineer</h3>
-<p>Michelin — 2020-2023</p>
-<p>Created digital manufacturing tools and applications to drive plant productivity.</p>
-</div>
+    float d, t=0.0;
+    for(int i=0;i<80;i++){
+        d = map(ro + rd*t);
+        if(d<0.001 || t>20.0) break;
+        t += d;
+    }
 
-<div class="job">
-<h3>Software Developer</h3>
-<p>ICF — 2016-2017</p>
-<p>Built mobile applications using React, Python, and PHP.</p>
-</div>
+    vec3 col = vec3(0.01);
 
-<div class="job">
-<h3>Senior Software Developer</h3>
-<p>Texas A&M University — 2013-2016</p>
-<p>Maintained Django applications and large public-facing websites.</p>
-</div>
+    vec2 m = (u_mouse - 0.5*u_resolution)/u_resolution.y;
+    float mouseField = exp(-6.0*length(uv - m));
 
-</div>
+    if(t<20.0){
+        vec3 p = ro + rd*t;
+        vec2 e = vec2(0.001,0);
+        vec3 n = normalize(vec3(
+            map(p)-map(p-e.xyy),
+            map(p)-map(p-e.yxy),
+            map(p)-map(p-e.yyx)
+        ));
 
-</section>
+        float rim = pow(1.0 - max(dot(n,-rd),0.0),3.0);
 
-<section id="projects" class="fade">
+        vec3 base = mix(vec3(0.02), vec3(0.0,0.95,1.0), rim);
 
-<h2 class="section-title">Projects</h2>
+        base += mouseField * vec3(0.0,0.6,1.0) * 0.6;
 
-<div class="projects">
+        float wisps = sin(p.x*4.0 + u_time)*sin(p.y*4.0)*sin(p.z*4.0);
+        base += wisps * 0.05;
 
-<div class="project">
-<img src="./project1.png">
-<div class="project-content">
-<h3>Machine Monitoring System</h3>
-<p>C# application polling PLC machines every 5 seconds to transform raw manufacturing data into analytics stored in SQL.</p>
-</div>
-</div>
+        col = base;
+    } else {
+        col += mouseField * vec3(0.0,0.3,0.6) * 0.3;
+    }
 
-<div class="project">
-<img src="./project2.png">
-<div class="project-content">
-<h3>Manufacturing Dashboard</h3>
-<p>Real-time production dashboard showing KPIs and daily metrics using JavaScript visualization tools.</p>
-</div>
-</div>
-
-<div class="project">
-<img src="./project3.png">
-<div class="project-content">
-<h3>Webpage Archive Tool</h3>
-<p>React Native crawler application that downloads websites locally and notifies users of internet connectivity.</p>
-</div>
-</div>
-
-<div class="project">
-<img src="./project4.png">
-<div class="project-content">
-<h3>Big Data Correlation Analysis</h3>
-<p>React + MongoDB system to explore correlations across large datasets with graph visualization.</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>© 2026 John Phillips</p>
-
-</footer>
+    gl_FragColor = vec4(col,1.0);
+}
+</script>
 
 <script>
+const canvas = document.getElementById('glcanvas');
+const gl = canvas.getContext('webgl');
 
-const observer = new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show")
+const program = gl.createProgram();
+
+const vs = gl.createShader(gl.VERTEX_SHADER);
+gl.shaderSource(vs, `attribute vec4 p; void main(){gl_Position=p;}`);
+gl.compileShader(vs);
+
+const fs = gl.createShader(gl.FRAGMENT_SHADER);
+gl.shaderSource(fs, document.getElementById('fs').text);
+gl.compileShader(fs);
+
+gl.attachShader(program, vs);
+gl.attachShader(program, fs);
+gl.linkProgram(program);
+gl.useProgram(program);
+
+const buf = gl.createBuffer();
+gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,1,1,-1,-1,1,-1]), gl.STATIC_DRAW);
+
+const pLoc = gl.getAttribLocation(program, 'p');
+gl.enableVertexAttribArray(pLoc);
+gl.vertexAttribPointer(pLoc, 2, gl.FLOAT, false, 0, 0);
+
+const ut = gl.getUniformLocation(program, 'u_time');
+const ur = gl.getUniformLocation(program, 'u_resolution');
+const um = gl.getUniformLocation(program, 'u_mouse');
+
+let mouse = {x: window.innerWidth/2, y: window.innerHeight/2};
+
+window.addEventListener('mousemove', e => {
+    mouse.x = e.clientX;
+    mouse.y = window.innerHeight - e.clientY;
+});
+
+function render(time){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    gl.viewport(0,0,canvas.width,canvas.height);
+
+    gl.uniform2f(ur, canvas.width, canvas.height);
+    gl.uniform1f(ut, time * 0.001);
+    gl.uniform2f(um, mouse.x, mouse.y);
+
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+    requestAnimationFrame(render);
 }
-})
-})
 
-document.querySelectorAll(".fade").forEach(el=>{
-observer.observe(el)
-})
-
+requestAnimationFrame(render);
 </script>
 
 </body>
